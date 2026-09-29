@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2026 Sebastien Rousseau <sebastian.rousseau@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+# Gitleaks configuration.
+#
+# Extends the upstream default rule set rather than replacing it: the default
+# rules are the value of the tool, and a hand-written subset would silently
+# stop matching new credential formats as they are added upstream.
+#
+# Nothing is muted here. An accepted finding goes in .gitleaksignore as a
+# fingerprint, so every exception names the exact commit, file and rule it
+# covers instead of disabling a rule for the whole repository.
+
+title = "passmcp-census"
+
+[extend]
+useDefault = true

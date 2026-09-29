@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2026 Sebastien Rousseau <sebastian.rousseau@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+name: Bug report
+description: The tooling, a table or a figure is wrong.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: >
+        If the bug lets the census contact a host the registry does not list,
+        call a tool, send a credential, or publish anything that identifies a
+        server — **stop** and report it through
+        [GitHub's private vulnerability reporting](https://github.com/sebastienrousseau/passmcp-census/security/advisories/new)
+        instead. See [SECURITY.md](https://github.com/sebastienrousseau/passmcp-census/blob/main/SECURITY.md).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: The command or the edition and table, what you expected, and what you saw.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versions
+      description: "`passmcp-census version`, and the passmcp version the edition names."

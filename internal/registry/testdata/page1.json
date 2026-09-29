@@ -1,0 +1,28 @@
+{
+ "servers": [
+  {"server": {"name": "io.example/current", "version": "1.1.0", "remotes": [
+    {"type": "streamable-http", "url": "https://mcp.example.com/mcp"},
+    {"type": "sse", "url": "https://mcp.example.com/sse"}
+   ]},
+   "_meta": {"io.modelcontextprotocol.registry/official": {"status": "active", "isLatest": true}}},
+  {"server": {"name": "io.example/current", "version": "1.0.0", "remotes": [
+    {"type": "streamable-http", "url": "https://mcp.example.com/old"}
+   ]},
+   "_meta": {"io.modelcontextprotocol.registry/official": {"status": "active", "isLatest": false}}},
+  {"server": {"name": "io.example/gone", "version": "2.0.0", "remotes": [
+    {"type": "streamable-http", "url": "https://gone.example.com/mcp"}
+   ]},
+   "_meta": {"io.modelcontextprotocol.registry/official": {"status": "deleted", "isLatest": true}}},
+  {"server": {"name": "io.example/template", "version": "1.0.0", "remotes": [
+    {"type": "streamable-http", "url": "https://{tenant}.example.com/mcp"}
+   ]}},
+  {"server": {"name": "io.example/keyed", "version": "1.0.0", "remotes": [
+    {"type": "streamable-http", "url": "https://keyed.example.com/mcp", "headers": [{"name": "X-API-Key", "isRequired": true}]},
+    {"type": "streamable-http", "url": "https://keyed.example.com/open", "headers": [{"name": "X-Trace", "isRequired": false}]}
+   ]}},
+  {"server": {"name": "io.example/local", "version": "1.0.0", "packages": [{"registryType": "npm"}]}},
+  "not an object",
+  {"server": {"version": "1.0.0"}}
+ ],
+ "metadata": {"nextCursor": "page2"}
+}

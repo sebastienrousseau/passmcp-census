@@ -1,0 +1,17 @@
+{
+ "servers": [
+  {"name": "io.example/flat", "version": "0.1.0", "status": "active", "remotes": [
+   {"transport_type": "streamable-http", "url": "https://flat.example.com/mcp"},
+   {"type": "stdio", "url": "https://flat.example.com/stdio"},
+   {"type": "streamable-http", "url": "ftp://flat.example.com/mcp"},
+   {"type": "streamable-http", "url": "https://user:secret@flat.example.com/mcp"}
+  ]},
+  {"name": "io.example/shared", "version": "1.0.0", "remotes": [
+   {"type": "streamable-http", "url": "https://mcp.example.com/mcp"}
+  ]},
+  {"name": "io.example/deprecated", "version": "1.0.0", "status": "deprecated", "remotes": [
+   {"type": "streamable-http", "url": "https://dep.example.com/mcp"}
+  ]}
+ ],
+ "metadata": {"next_cursor": ""}
+}

@@ -7,6 +7,26 @@ All notable changes are documented here, in the format of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions move by
 0.0.1 a release, in lockstep with the rest of the passmcp family.
 
+## [0.0.3]
+
+No change to what the census lists, runs or publishes, and no census
+edition is published in this release.
+
+### Added
+
+- **Fuzz targets** for the two parsers that read untrusted input:
+  `FuzzSummarise` checks that a passmcp report, whatever it holds, yields
+  only check ids and phase names in passmcp's form and known statuses,
+  so no server-chosen text reaches a table; `FuzzTail` checks the bound
+  on kept error text; `FuzzListing` checks that every endpoint a registry
+  page selects is a remote HTTP endpoint with a bare http(s) URL, and
+  that each URL is checked once.
+
+### Changed
+
+- **Manual**: built with pymdown-extensions 12.1 (was 12.0.1), in the
+  hash-locked `docs/requirements.txt`.
+
 ## [0.0.2] — 2026-09-29
 
 The first release. passmcp-census was never tagged at 0.0.1; it joins the

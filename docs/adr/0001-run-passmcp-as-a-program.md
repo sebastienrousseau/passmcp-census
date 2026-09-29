@@ -16,7 +16,7 @@ is Apache-2.0 and its data CC-BY-4.0.
 ## Decision
 
 The census runs the passmcp binary installed from a release
-(`go install satellion.com/passmcp/cmd/passmcp@v0.0.1`, `make passmcp`) and
+(`go install satellion.com/passmcp/cmd/passmcp@v0.0.2`, `make passmcp`) and
 reads its JSON report. The Makefile pins the release; the edition records
 the version the binary reported.
 

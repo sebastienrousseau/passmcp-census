@@ -31,4 +31,13 @@ family at the family's current version.
 - The methodology, the disclosure log, a rendered manual, decision records
   and the family's repository files.
 
+### Changed
+
+- **Method**: a census runs passmcp v0.0.2 (`PASSMCP_VERSION`), moved
+  from v0.0.1 during development so the census requires the newest
+  released passmcp. The flags the runner passes and the report fields it
+  reads are unchanged in v0.0.2; its one engine change rewords the detail
+  of `protocol.id_echo`, which the census does not read. No edition was
+  run at v0.0.1 ([methodology](docs/methodology.md#method-history)).
+
 No census edition is published in this release.

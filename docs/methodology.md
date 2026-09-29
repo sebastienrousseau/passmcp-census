@@ -33,7 +33,7 @@ dropped (`excluded`). The unit of the census is a distinct endpoint URL.
 ## What runs
 
 Each endpoint is checked by the passmcp release pinned in the Makefile
-(`PASSMCP_VERSION`, v0.0.1), with:
+(`PASSMCP_VERSION`, v0.0.2), with:
 
 ```sh
 passmcp check <url> --phases net,discovery,handshake,protocol,catalog \
@@ -103,3 +103,13 @@ complete, and the reproduction command (`make census EDITION=<edition>`).
 - Not a verdict about any server. It is how many endpoints showed a
   property to an anonymous client on the day of the run.
 - Not comparable across passmcp versions without reading both methods.
+
+## Method history
+
+Each change to the pinned passmcp release or to anything above, with the
+passmcp-census release that made it. The [CHANGELOG](https://github.com/sebastienrousseau/passmcp-census/blob/main/CHANGELOG.md)
+records the same changes.
+
+| Release | Change | Effect on the figures |
+|---|---|---|
+| 0.0.2 | passmcp pinned at v0.0.2, moved from v0.0.1 during development | None expected: v0.0.2 accepts the same flags and writes the same report fields (schema version 1). Its one engine change rewords the detail text of `protocol.id_echo`, which the census does not read; the check's status is unchanged. No edition was run at v0.0.1. |

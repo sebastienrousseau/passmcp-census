@@ -7,7 +7,7 @@ All notable changes are documented here, in the format of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions move by
 0.0.1 a release, in lockstep with the rest of the passmcp family.
 
-## [0.0.2] — Unreleased
+## [0.0.2] — 2026-09-29
 
 The first release. passmcp-census was never tagged at 0.0.1; it joins the
 family at the family's current version.

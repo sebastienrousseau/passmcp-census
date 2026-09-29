@@ -73,8 +73,8 @@ go install satellion.com/passmcp/cmd/passmcp@v0.0.2
 ```
 
 with `GOBIN` set to `build/bin`. passmcp-census has no dependency outside
-the Go standard library. There are no release binaries: 0.0.2 is not yet
-tagged, and once it is, the command installs from the module proxy.
+the Go standard library. There are no release binaries; the command
+installs from the module proxy.
 
 ---
 
@@ -138,10 +138,10 @@ publishes only figures across all of them.
 
 | Area | Capability | Status |
 | :--- | :--- | :--- |
-| Selection | `passmcp-census list`: the registry snapshot and what a run would check | Not yet released ([CHANGELOG](CHANGELOG.md#002--unreleased)) |
-| Run | `passmcp-census run`: each endpoint checked by passmcp v0.0.2, read-only, without credentials, rate-limited | Not yet released ([CHANGELOG](CHANGELOG.md#002--unreleased)) |
-| Dataset | `passmcp-census aggregate`: CSV tables, `census.json`, `datapackage.json` | Not yet released ([CHANGELOG](CHANGELOG.md#002--unreleased)) |
-| Documentation | Methodology, disclosure log, decision records, rendered manual | Not yet released ([CHANGELOG](CHANGELOG.md#002--unreleased)) |
+| Selection | `passmcp-census list`: the registry snapshot and what a run would check | [Released in 0.0.2](https://github.com/sebastienrousseau/passmcp-census/releases/tag/v0.0.2) |
+| Run | `passmcp-census run`: each endpoint checked by passmcp v0.0.2, read-only, without credentials, rate-limited | [Released in 0.0.2](https://github.com/sebastienrousseau/passmcp-census/releases/tag/v0.0.2) |
+| Dataset | `passmcp-census aggregate`: CSV tables, `census.json`, `datapackage.json` | [Released in 0.0.2](https://github.com/sebastienrousseau/passmcp-census/releases/tag/v0.0.2) |
+| Documentation | Methodology, disclosure log, decision records, rendered manual | [Released in 0.0.2](https://github.com/sebastienrousseau/passmcp-census/releases/tag/v0.0.2) |
 | Edition 2026-09 | The first published figures | Not yet run: no figures exist ([docs/index.md](docs/index.md#editions)) |
 
 ---

@@ -1,0 +1,19 @@
+// A container that boots to a working `make`. The base image is pinned by
+// digest; GOTOOLCHAIN=auto fetches the exact floor go.mod names.
+{
+  "name": "passmcp-census",
+  "image": "mcr.microsoft.com/devcontainers/go:1.26-bookworm@sha256:5b40bf0530204ec28eac4bd95b0398b15bfbef337d47ed77d7b29daca9fac18a",
+  "containerEnv": {
+    "GOTOOLCHAIN": "auto"
+  },
+  "postCreateCommand": ".devcontainer/post-create.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": ["golang.go"],
+      "settings": {
+        "go.lintTool": "golangci-lint"
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}

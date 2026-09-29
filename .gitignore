@@ -1,0 +1,4 @@
+/build/
+/public/
+coverage.out
+coverage.log

@@ -1,0 +1,23 @@
+{
+ "passmcp": {"version": "0.0.1", "schema_version": 1},
+ "auth": {"mode": "none", "reached": true, "required": true, "prm_source": "well-known"},
+ "blocked": "the server requires authorization and the run has no credentials",
+ "phases": [
+  {"name": "net", "status": "pass", "findings": [
+   {"id": "net.dns", "phase": "net", "status": "pass"},
+   {"id": "net.tls", "phase": "net", "status": "warn"}
+  ]},
+  {"name": "discovery", "status": "fail", "findings": [
+   {"id": "discovery.as.https", "phase": "discovery", "status": "fail"},
+   {"id": "auth.source.client_id", "phase": "discovery", "status": "info"},
+   {"id": "Not A Check <script>", "phase": "discovery", "status": "info"},
+   {"id": "discovery.prm", "phase": "discovery", "status": "bogus"}
+  ]},
+  {"name": "handshake", "status": "skip", "skipped": "blocked", "findings": null},
+  {"name": "catalog", "status": "skip", "findings": [
+   {"id": "catalog.text.hidden", "phase": "catalog", "status": "pass"},
+   {"id": "catalog.text.hidden", "phase": "catalog", "status": "fail"},
+   {"id": "catalog.text.hidden", "phase": "catalog", "status": "info"}
+  ]}
+ ]
+}

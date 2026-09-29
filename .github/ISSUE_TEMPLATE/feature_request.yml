@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2026 Sebastien Rousseau <sebastian.rousseau@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+name: Feature request
+description: A figure the census should publish, or measure differently.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What you are trying to find out
+    validations:
+      required: true
+  - type: textarea
+    id: servers
+    attributes:
+      label: What it would change for the servers checked
+      description: Anything that makes a run contact more, call more, or publish more detail needs this answered first.

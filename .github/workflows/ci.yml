@@ -1,0 +1,166 @@
+# SPDX-FileCopyrightText: 2026 Sebastien Rousseau <sebastian.rousseau@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  test:
+    name: Test (${{ matrix.os }}, go ${{ matrix.go }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        go: ["go.mod", "stable"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Go from go.mod
+        if: matrix.go == 'go.mod'
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+
+      - name: Set up latest stable Go
+        if: matrix.go == 'stable'
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: stable
+
+      # The runner and command tests stand the test binary itself in for
+      # passmcp, so they run on every OS and contact nothing.
+      - name: Test
+        run: go test ./... -cover
+
+  race:
+    name: Race & Shuffled Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Race detector, randomised order
+        env:
+          GOTOOLCHAIN: auto
+        run: go test -race -shuffle=on -count=1 ./...
+
+  coverage:
+    name: Coverage Gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Every package at or above 85% statement coverage
+        env:
+          GOTOOLCHAIN: auto
+          THRESHOLD: '85'
+        run: |
+          set -euo pipefail
+          go test -count=1 -coverprofile=coverage.out ./... 2>&1 | tee coverage.log
+          failed=0
+          # "ok  <pkg>  <time>  coverage: NN.N% of statements"
+          while read -r line; do
+            pkg="$(echo "${line}" | awk '{print $2}')"
+            # A package with no statements reports "[no statements]" and
+            # has nothing to gate; the failing grep must not end the loop.
+            pct="$(echo "${line}" | grep -oE 'coverage: [0-9.]+%' | grep -oE '[0-9.]+' || true)"
+            [ -z "${pct}" ] && continue
+            if awk -v p="${pct}" -v t="${THRESHOLD}" 'BEGIN { exit !(p < t) }'; then
+              echo "::error::${pkg} is at ${pct}%, below the ${THRESHOLD}% gate"
+              failed=1
+            else
+              echo "${pkg}: ${pct}%"
+            fi
+          done < <(grep -E '^ok .*coverage:' coverage.log || true)
+          exit "${failed}"
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Formatting is canonical
+        env:
+          GOTOOLCHAIN: auto
+        run: |
+          set -euo pipefail
+          unformatted="$(gofmt -l .)"
+          if [ -n "${unformatted}" ]; then
+            echo "::error::gofmt would change:"; echo "${unformatted}"; exit 1
+          fi
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@ba0d7d2ec06a0ea1cb5fa41b2e4a3ab91d21278a # v9.3.0
+        env:
+          GOTOOLCHAIN: auto
+        with:
+          version: v2.13.2
+          args: ./...
+
+  vulncheck:
+    name: Vulnerability Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: govulncheck
+        env:
+          GOTOOLCHAIN: auto
+        run: go run golang.org/x/vuln/cmd/govulncheck@latest ./...
+
+  checks:
+    name: Repository Checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: SPDX header on every source file
+        env:
+          GOTOOLCHAIN: auto
+        run: make spdx-check
+      - name: The retired name appears nowhere
+        run: ./scripts/name-guard.sh
+      - name: README follows the template
+        run: make readme-check
+      - name: Every version-bearing file names the newest release
+        run: make versions
+      - name: REUSE compliance
+        run: pipx run reuse==6.2.0 lint

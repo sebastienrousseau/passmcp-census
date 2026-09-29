@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: 2026 Sebastien Rousseau <sebastian.rousseau@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+site_name: passmcp-census
+site_description: The passmcp reliability census of the MCP Registry's remote servers.
+site_url: https://sebastienrousseau.com/passmcp-census/
+repo_url: https://github.com/sebastienrousseau/passmcp-census
+repo_name: sebastienrousseau/passmcp-census
+edit_uri: edit/main/docs/
+docs_dir: docs
+site_dir: public
+strict: true
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Follow the system
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.highlight
+
+nav:
+  - Home: index.md
+  - Methodology: methodology.md
+  - Disclosure log: disclosure-log.md
+  - Architecture: ARCHITECTURE.md
+  - Decision records:
+      - adr/README.md
+      - adr/0001-run-passmcp-as-a-program.md
+      - adr/0002-non-invoking-phases-without-credentials.md
+      - adr/0003-editions-run-by-hand.md
+      - adr/0004-aggregate-only.md
+  - Releases:
+      - releases/v0.0.2.md

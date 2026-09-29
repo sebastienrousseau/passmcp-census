@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2026 Sebastien Rousseau <sebastian.rousseau@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+blank_issues_enabled: false
+contact_links:
+  - name: Report a vulnerability in passmcp-census
+    url: https://github.com/sebastienrousseau/passmcp-census/security/advisories/new
+    about: Privately, per SECURITY.md.
+  - name: Exclude your server from the census
+    url: https://github.com/sebastienrousseau/passmcp-census/blob/main/docs/disclosure-log.md
+    about: How to have your server not contacted by future editions.
+  - name: A passmcp finding looks wrong
+    url: https://github.com/sebastienrousseau/passmcp/issues
+    about: The census counts passmcp's verdicts unchanged; a wrong finding is passmcp's to fix.

@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: 2026 Sebastien Rousseau <sebastian.rousseau@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+cff-version: 1.2.0
+title: "passmcp-census: the passmcp reliability census of the MCP Registry's remote servers"
+message: >-
+  If you use the census data, please cite it using these metadata and name
+  the edition (data/<edition>/) you used.
+type: dataset
+authors:
+  - family-names: Rousseau
+    given-names: Sebastien
+    email: sebastian.rousseau@gmail.com
+repository-code: "https://github.com/sebastienrousseau/passmcp-census"
+url: "https://sebastienrousseau.com/passmcp-census/"
+abstract: >-
+  Aggregate reliability figures for the remote MCP servers listed in the
+  official MCP Registry, each checked by a released passmcp read-only and
+  without credentials. Each edition publishes counts and rates by outcome,
+  check, phase, transport and authorization scheme, with no server
+  identified, plus the passmcp version, the registry snapshot time and the
+  command that reproduces it. The data is CC-BY-4.0 and the tooling
+  Apache-2.0. Release 0.0.2 ships the tooling and methodology; no edition
+  has been published yet.
+keywords:
+  - model-context-protocol
+  - mcp
+  - mcp-registry
+  - reliability
+  - census
+  - dataset
+license: CC-BY-4.0
+version: 0.0.2
+date-released: 2026-09-29

@@ -1,0 +1,302 @@
+{
+ "passmcp": {
+  "version": "0.0.1",
+  "schema_version": 1
+ },
+ "auth": {
+  "mode": "none",
+  "reached": false,
+  "required": false
+ },
+ "phases": [
+  {
+   "name": "net",
+   "status": "pass",
+   "findings": [
+    {
+     "id": "stdio.process",
+     "phase": "net",
+     "title": "Server process is running",
+     "status": "pass"
+    },
+    {
+     "id": "supply.buildinfo",
+     "phase": "net",
+     "title": "What the server binary is made of",
+     "status": "info"
+    },
+    {
+     "id": "supply.provenance",
+     "phase": "net",
+     "title": "The binary can be traced to a commit",
+     "status": "info"
+    },
+    {
+     "id": "stdio.environment",
+     "phase": "net",
+     "title": "Environment handed to the server",
+     "status": "info"
+    }
+   ]
+  },
+  {
+   "name": "discovery",
+   "status": "skip",
+   "skipped": "a child process has no origin and no metadata to discover. The trust decision was made when the operator chose which program to run, and passmcp cannot second-guess it from here",
+   "findings": null
+  },
+  {
+   "name": "handshake",
+   "status": "pass",
+   "findings": [
+    {
+     "id": "handshake.protocol_era",
+     "phase": "handshake",
+     "title": "Protocol generation",
+     "status": "pass"
+    },
+    {
+     "id": "handshake.server_info",
+     "phase": "handshake",
+     "title": "Server identifies itself",
+     "status": "pass"
+    },
+    {
+     "id": "protocol.routing_headers",
+     "phase": "handshake",
+     "title": "Mirrored routing headers are validated",
+     "status": "skip"
+    }
+   ]
+  },
+  {
+   "name": "protocol",
+   "status": "pass",
+   "findings": [
+    {
+     "id": "protocol.extensions",
+     "phase": "protocol",
+     "title": "Advertised extensions",
+     "status": "info"
+    },
+    {
+     "id": "protocol.ping",
+     "phase": "protocol",
+     "title": "server/discover",
+     "status": "pass"
+    },
+    {
+     "id": "protocol.unknown_method",
+     "phase": "protocol",
+     "title": "Unknown method returns -32601",
+     "status": "pass"
+    },
+    {
+     "id": "protocol.id_echo",
+     "phase": "protocol",
+     "title": "Response id matches request id",
+     "status": "pass"
+    },
+    {
+     "id": "protocol.malformed_json",
+     "phase": "protocol",
+     "title": "Malformed JSON is rejected",
+     "status": "pass"
+    },
+    {
+     "id": "protocol.invalid_params",
+     "phase": "protocol",
+     "title": "tools/call without a name is rejected",
+     "status": "pass"
+    },
+    {
+     "id": "protocol.unknown_tool",
+     "phase": "protocol",
+     "title": "Unknown tool is reported",
+     "status": "pass"
+    },
+    {
+     "id": "protocol.deprecated_features",
+     "phase": "protocol",
+     "title": "Removed mechanisms are gone",
+     "status": "pass"
+    },
+    {
+     "id": "protocol.accept_header",
+     "phase": "protocol",
+     "title": "Request without Accept header",
+     "status": "skip"
+    },
+    {
+     "id": "protocol.get_stream",
+     "phase": "protocol",
+     "title": "GET on the MCP endpoint",
+     "status": "skip"
+    },
+    {
+     "id": "protocol.bogus_session",
+     "phase": "protocol",
+     "title": "Unknown session id is rejected",
+     "status": "skip"
+    },
+    {
+     "id": "protocol.version_header",
+     "phase": "protocol",
+     "title": "Bad MCP-Protocol-Version is rejected",
+     "status": "skip"
+    },
+    {
+     "id": "protocol.origin",
+     "phase": "protocol",
+     "title": "A foreign Origin is rejected",
+     "status": "skip"
+    }
+   ]
+  },
+  {
+   "name": "catalog",
+   "status": "pass",
+   "findings": [
+    {
+     "id": "catalog.tools.list",
+     "phase": "catalog",
+     "title": "tools/list",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.tools.unique",
+     "phase": "catalog",
+     "title": "Tool names are unique",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.tools.descriptions",
+     "phase": "catalog",
+     "title": "Every tool has a useful description",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.tools.input_schema",
+     "phase": "catalog",
+     "title": "inputSchema is a JSON Schema object",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.tools.annotations",
+     "phase": "catalog",
+     "title": "Tools declare behaviour annotations",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.tools.annotation_honesty",
+     "phase": "catalog",
+     "title": "readOnlyHint agrees with what the tool says it does",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.tools.idempotency",
+     "phase": "catalog",
+     "title": "Tools say whether a repeated call is safe",
+     "status": "info"
+    },
+    {
+     "id": "catalog.tools.output_schema",
+     "phase": "catalog",
+     "title": "Tools declare outputSchema",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.budget.tokens",
+     "phase": "catalog",
+     "title": "Catalogue fits a context budget",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.semantic.ambiguity",
+     "phase": "catalog",
+     "title": "Parameters are described well enough to use",
+     "status": "info"
+    },
+    {
+     "id": "catalog.cache_hints",
+     "phase": "catalog",
+     "title": "The catalogue says whether it can be cached",
+     "status": "info"
+    },
+    {
+     "id": "catalog.personal_data",
+     "phase": "catalog",
+     "title": "Tools whose schemas name personal data",
+     "status": "info"
+    },
+    {
+     "id": "catalog.resources.list",
+     "phase": "catalog",
+     "title": "resources/list",
+     "status": "info"
+    },
+    {
+     "id": "catalog.prompts.list",
+     "phase": "catalog",
+     "title": "prompts/list",
+     "status": "info"
+    },
+    {
+     "id": "catalog.text.hidden",
+     "phase": "catalog",
+     "title": "Catalog text has nothing hidden in it",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.text.comments",
+     "phase": "catalog",
+     "title": "Catalog text carries no hidden comments",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.text.instructions",
+     "phase": "catalog",
+     "title": "Catalog text describes rather than instructs",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.text.secret_paths",
+     "phase": "catalog",
+     "title": "Catalog text names no credential locations",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.text.encoded",
+     "phase": "catalog",
+     "title": "Catalog text is written, not encoded",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.names.confusable",
+     "phase": "catalog",
+     "title": "Names use a single script",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.text.shadowing",
+     "phase": "catalog",
+     "title": "Catalog text governs only its own tool",
+     "status": "pass"
+    },
+    {
+     "id": "catalog.toxic_combination",
+     "phase": "catalog",
+     "title": "No tool pair reads private data and sends it out",
+     "status": "pass"
+    }
+   ]
+  }
+ ],
+ "counts": {
+  "pass": 26,
+  "warn": 0,
+  "fail": 0,
+  "skip": 6,
+  "info": 10
+ }
+}

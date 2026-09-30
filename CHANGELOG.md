@@ -7,6 +7,14 @@ All notable changes are documented here, in the format of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions move by
 0.0.1 a release, in lockstep with the rest of the passmcp family.
 
+## [Unreleased]
+
+### Added
+
+- **A README demo**, rendered from `.github/demo.tape` by `make demo`: a
+  census run against a local registry of three example servers, then the
+  aggregated tables, with the protocol failures counted.
+
 ## [0.0.3] — 2026-09-30
 
 The census now runs passmcp v0.0.3; no census edition is published in

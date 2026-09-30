@@ -7,13 +7,28 @@ All notable changes are documented here, in the format of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions move by
 0.0.1 a release, in lockstep with the rest of the passmcp family.
 
-## [Unreleased]
+## [0.0.4] — 2026-09-30
+
+The census now runs passmcp v0.0.4; no census edition is published in
+this release.
 
 ### Added
 
 - **A README demo**, rendered from `.github/demo.tape` by `make demo`: a
   census run against a local registry of three example servers, then the
   aggregated tables, with the protocol failures counted.
+
+### Changed
+
+- **In lockstep with passmcp 0.0.4.** passmcp-census is released at the
+  family's version.
+- **Method**: passmcp is pinned at v0.0.4 (was v0.0.3). Its `check`
+  flags and the report fields the census reads are unchanged. Five new
+  checks in the phases the census runs add rows to the check table, three
+  of them with one more read-only request each, and a server on MCP
+  2024-11-05 is now graded instead of stopping at the handshake. Recorded
+  in the methodology's
+  [method history](docs/methodology.md#method-history).
 
 ## [0.0.3] — 2026-09-30
 

@@ -57,5 +57,6 @@ nav:
       - adr/0003-editions-run-by-hand.md
       - adr/0004-aggregate-only.md
   - Releases:
+      - releases/v0.0.4.md
       - releases/v0.0.3.md
       - releases/v0.0.2.md

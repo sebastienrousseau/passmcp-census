@@ -4,6 +4,7 @@
 site_name: passmcp-census
 site_description: The passmcp reliability census of the MCP Registry's remote servers.
 site_url: https://sebastienrousseau.com/passmcp-census/
+copyright: '&copy; 2026 <a href="https://sebastienrousseau.com/" rel="author">Sebastien Rousseau</a>'
 repo_url: https://github.com/sebastienrousseau/passmcp-census
 repo_name: sebastienrousseau/passmcp-census
 edit_uri: edit/main/docs/
@@ -56,5 +57,6 @@ nav:
       - adr/0003-editions-run-by-hand.md
       - adr/0004-aggregate-only.md
   - Releases:
+      - releases/v0.0.4.md
       - releases/v0.0.3.md
       - releases/v0.0.2.md

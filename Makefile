@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 .PHONY: all build test test-race coverage coverage-json vet lint format spdx-check reuse readme-check \
-        name-guard versions manual passmcp census-list census help
+        name-guard versions manual passmcp census-list census demo help
 
 # The version is the newest release heading in CHANGELOG.md, and nowhere else.
 VERSION ?= $(shell grep -Eo '^.. \[[0-9]+\.[0-9]+\.[0-9]+\]' CHANGELOG.md | head -1 | tr -dc '0-9.')
@@ -10,7 +10,7 @@ VERSION ?= $(shell grep -Eo '^.. \[[0-9]+\.[0-9]+\.[0-9]+\]' CHANGELOG.md | head
 # The passmcp release a census runs: a tagged release that exists, never
 # newer than this repository's own version. Every document that names it
 # must agree (scripts/verify-release-versions.sh).
-PASSMCP_VERSION := v0.0.3
+PASSMCP_VERSION := v0.0.4
 PASSMCP ?= $(CURDIR)/build/bin/passmcp
 REGISTRY ?= https://registry.modelcontextprotocol.io
 EDITION ?=
@@ -89,6 +89,18 @@ census: build passmcp
 	build/passmcp-census run --edition "$(EDITION)" --registry "$(REGISTRY)" --passmcp "$(PASSMCP)"
 	build/passmcp-census aggregate --edition "$(EDITION)"
 
+# The README demo (.github/demo.gif), rendered by VHS from .github/demo.tape:
+# run and aggregate against a fake registry on loopback that lists three of
+# passmcp's example servers, installed at the pinned release. It runs in
+# build/demo/work with its own exclusions list, so nothing is written to
+# data/, and contacts nothing beyond 127.0.0.1. Needs vhs, ttyd, ffmpeg and
+# python3.
+demo: build passmcp
+	rm -rf build/demo && mkdir -p build/demo/bin build/demo/work/data
+	GOBIN="$(CURDIR)/build/demo/bin" go install "satellion.com/passmcp/examples/servers@$(PASSMCP_VERSION)"
+	cp data/exclusions.txt build/demo/work/data/
+	PATH="$(CURDIR)/build:$(CURDIR)/build/bin:$(CURDIR)/build/demo/bin:$$PATH" vhs .github/demo.tape
+
 help:
 	@printf '%s\n' "targets: all build test test-race coverage coverage-json vet lint format spdx-check reuse" \
-	  "         readme-check name-guard versions manual passmcp census-list census (EDITION=YYYY-MM)"
+	  "         readme-check name-guard versions manual passmcp census-list census (EDITION=YYYY-MM) demo"

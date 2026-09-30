@@ -13,7 +13,7 @@ is cut.
 |---|---|---|
 | Go | 1.26.8 or later, the `go` directive in `go.mod` | `GOTOOLCHAIN=auto` downloads it; CI tests on that version and on latest stable |
 | make | any | Task runner for everything below |
-| passmcp | the release `PASSMCP_VERSION` in the Makefile pins | Only for a census run; `make passmcp` installs `satellion.com/passmcp/cmd/passmcp@v0.0.3` into `build/bin` |
+| passmcp | the release `PASSMCP_VERSION` in the Makefile pins | Only for a census run; `make passmcp` installs `satellion.com/passmcp/cmd/passmcp@v0.0.4` into `build/bin` |
 
 Optional, only for the gate that uses it: `golangci-lint` v2 (`make lint`),
 `reuse` (`make reuse`), Python 3.12 with the hash-locked
@@ -80,6 +80,15 @@ make census EDITION=2026-09        # passmcp at the pinned release, then aggrega
 `make census` writes the private working files (listing, per-endpoint
 records, run metadata) to `build/census/<edition>/` and the dataset to
 `data/<edition>/`. Review the dataset, then commit only `data/<edition>/`.
+
+`make demo` runs an edition against loopback only and records it as the
+README demo, `.github/demo.gif`: `.github/demo/registry` is served as a fake
+registry with `python3 -m http.server`, listing three of passmcp's example
+servers, and [VHS](https://github.com/charmbracelet/vhs) (`vhs`, `ttyd`,
+`ffmpeg`) records `.github/demo.tape` in `build/demo/work`, so nothing is
+written to `data/`. Regenerate it when what `run` or `aggregate` prints
+changes, and leave 90 seconds between renders: the servers a render starts
+stop themselves then.
 
 ## Test layout
 

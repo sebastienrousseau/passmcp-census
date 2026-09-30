@@ -69,7 +69,7 @@ make passmcp        # passmcp at the pinned release, into build/bin
 `make passmcp` runs:
 
 ```sh
-go install satellion.com/passmcp/cmd/passmcp@v0.0.2
+go install satellion.com/passmcp/cmd/passmcp@v0.0.3
 ```
 
 with `GOBIN` set to `build/bin`. passmcp-census has no dependency outside
@@ -83,7 +83,7 @@ installs from the module proxy.
 | Requirement | Floor | Enforced by |
 |---|---|---|
 | Go | the `go` directive in [`go.mod`](go.mod), 1.26.8 | CI tests on that version and on latest stable, on Linux, macOS and Windows |
-| passmcp | the release the Makefile pins, v0.0.2 | `make passmcp` installs exactly that release; each edition records the version the binary reported |
+| passmcp | the release the Makefile pins, v0.0.3 | `make passmcp` installs exactly that release; each edition records the version the binary reported |
 | Network | HTTPS to the registry for `list`; to every listed server for `run` | nothing in CI or the tests leaves loopback |
 
 The Go floor is raised only when a release needs a language feature, and
@@ -113,7 +113,7 @@ decision to run one ([ADR 0003](docs/adr/0003-editions-run-by-hand.md)).
 
 ## The passmcp-census ecosystem
 
-Every component is released at **0.0.2** and moves in lockstep: one version across the family, released together ([docs/ecosystem.md](https://github.com/sebastienrousseau/passmcp/blob/main/docs/ecosystem.md)).
+Every component is released at **0.0.3** and moves in lockstep: one version across the family, released together ([docs/ecosystem.md](https://github.com/sebastienrousseau/passmcp/blob/main/docs/ecosystem.md)).
 
 | Component | Purpose | Use case |
 | :--- | :--- | :--- |
@@ -139,7 +139,7 @@ publishes only figures across all of them.
 | Area | Capability | Status |
 | :--- | :--- | :--- |
 | Selection | `passmcp-census list`: the registry snapshot and what a run would check | [Released in 0.0.2](https://github.com/sebastienrousseau/passmcp-census/releases/tag/v0.0.2) |
-| Run | `passmcp-census run`: each endpoint checked by passmcp v0.0.2, read-only, without credentials, rate-limited | [Released in 0.0.2](https://github.com/sebastienrousseau/passmcp-census/releases/tag/v0.0.2) |
+| Run | `passmcp-census run`: each endpoint checked by passmcp v0.0.3, read-only, without credentials, rate-limited | [Released in 0.0.2](https://github.com/sebastienrousseau/passmcp-census/releases/tag/v0.0.2) |
 | Dataset | `passmcp-census aggregate`: CSV tables, `census.json`, `datapackage.json` | [Released in 0.0.2](https://github.com/sebastienrousseau/passmcp-census/releases/tag/v0.0.2) |
 | Documentation | Methodology, disclosure log, decision records, rendered manual | [Released in 0.0.2](https://github.com/sebastienrousseau/passmcp-census/releases/tag/v0.0.2) |
 | Edition 2026-09 | The first published figures | Not yet run: no figures exist ([docs/index.md](docs/index.md#editions)) |
@@ -312,7 +312,7 @@ The four entry points, identical across every repo in the family:
 | [`docs/disclosure-log.md`](docs/disclosure-log.md) | The aggregate-only policy and every exclusion |
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Packages and how a run flows |
 | [`docs/adr/`](docs/adr/README.md) | Decision records for this repository |
-| [`docs/releases/`](docs/releases/v0.0.2.md) | Release highlights, one file per release |
+| [`docs/releases/`](docs/releases/v0.0.3.md) | Release highlights, one file per release |
 | [`SECURITY.md`](SECURITY.md) | Disclosure policy, supported versions, what is guaranteed |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Signed-commit and DCO policy, what a change needs |
 | [`CHANGELOG.md`](CHANGELOG.md) | Per-release notes |

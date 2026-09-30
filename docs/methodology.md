@@ -33,7 +33,7 @@ dropped (`excluded`). The unit of the census is a distinct endpoint URL.
 ## What runs
 
 Each endpoint is checked by the passmcp release pinned in the Makefile
-(`PASSMCP_VERSION`, v0.0.2), with:
+(`PASSMCP_VERSION`, v0.0.3), with:
 
 ```sh
 passmcp check <url> --phases net,discovery,handshake,protocol,catalog \
@@ -113,3 +113,4 @@ records the same changes.
 | Release | Change | Effect on the figures |
 |---|---|---|
 | 0.0.2 | passmcp pinned at v0.0.2, moved from v0.0.1 during development | None expected: v0.0.2 accepts the same flags and writes the same report fields (schema version 1). Its one engine change rewords the detail text of `protocol.id_echo`, which the census does not read; the check's status is unchanged. No edition was run at v0.0.1. |
+| 0.0.3 | passmcp pinned at v0.0.3 | `check --help` is identical to v0.0.2's and the report fields the census reads are unchanged. One outcome can differ: a server whose list cursors loop now fails the catalogue phase with a named error instead of running to the timeout. |

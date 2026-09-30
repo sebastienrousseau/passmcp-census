@@ -81,6 +81,15 @@ make census EDITION=2026-09        # passmcp at the pinned release, then aggrega
 records, run metadata) to `build/census/<edition>/` and the dataset to
 `data/<edition>/`. Review the dataset, then commit only `data/<edition>/`.
 
+`make demo` runs an edition against loopback only and records it as the
+README demo, `.github/demo.gif`: `.github/demo/registry` is served as a fake
+registry with `python3 -m http.server`, listing three of passmcp's example
+servers, and [VHS](https://github.com/charmbracelet/vhs) (`vhs`, `ttyd`,
+`ffmpeg`) records `.github/demo.tape` in `build/demo/work`, so nothing is
+written to `data/`. Regenerate it when what `run` or `aggregate` prints
+changes, and leave 90 seconds between renders: the servers a render starts
+stop themselves then.
+
 ## Test layout
 
 Each package's tests sit beside it. The registry tests serve fixture pages

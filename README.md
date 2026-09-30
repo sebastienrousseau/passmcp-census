@@ -21,6 +21,10 @@
   <a href="https://github.com/sebastienrousseau/passmcp-census/blob/main/DEVELOPMENT.md#requirements"><img src="https://img.shields.io/badge/go-1.26.8%2B-93450a.svg?style=for-the-badge&logo=go" alt="Go 1.26.8+" /></a>
 </p>
 
+<p align="center">
+  <img src=".github/demo.gif" alt="passmcp-census run and aggregate against a fake registry on loopback listing three of passmcp's example servers: three reports, two with a failing protocol check, and the per-phase table the dataset publishes" width="100%" />
+</p>
+
 ---
 
 ## Contents

@@ -13,7 +13,7 @@ is cut.
 |---|---|---|
 | Go | 1.26.8 or later, the `go` directive in `go.mod` | `GOTOOLCHAIN=auto` downloads it; CI tests on that version and on latest stable |
 | make | any | Task runner for everything below |
-| passmcp | the release `PASSMCP_VERSION` in the Makefile pins | Only for a census run; `make passmcp` installs `satellion.com/passmcp/cmd/passmcp@v0.0.2` into `build/bin` |
+| passmcp | the release `PASSMCP_VERSION` in the Makefile pins | Only for a census run; `make passmcp` installs `satellion.com/passmcp/cmd/passmcp@v0.0.3` into `build/bin` |
 
 Optional, only for the gate that uses it: `golangci-lint` v2 (`make lint`),
 `reuse` (`make reuse`), Python 3.12 with the hash-locked

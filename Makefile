@@ -10,7 +10,7 @@ VERSION ?= $(shell grep -Eo '^.. \[[0-9]+\.[0-9]+\.[0-9]+\]' CHANGELOG.md | head
 # The passmcp release a census runs: a tagged release that exists, never
 # newer than this repository's own version. Every document that names it
 # must agree (scripts/verify-release-versions.sh).
-PASSMCP_VERSION := v0.0.2
+PASSMCP_VERSION := v0.0.3
 PASSMCP ?= $(CURDIR)/build/bin/passmcp
 REGISTRY ?= https://registry.modelcontextprotocol.io
 EDITION ?=

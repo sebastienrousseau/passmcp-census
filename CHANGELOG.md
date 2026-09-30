@@ -7,10 +7,10 @@ All notable changes are documented here, in the format of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions move by
 0.0.1 a release, in lockstep with the rest of the passmcp family.
 
-## [0.0.3]
+## [0.0.3] — 2026-09-30
 
-No change to what the census lists, runs or publishes, and no census
-edition is published in this release.
+The census now runs passmcp v0.0.3; no census edition is published in
+this release.
 
 ### Added
 
@@ -26,6 +26,11 @@ edition is published in this release.
 
 - **Manual**: built with pymdown-extensions 12.1 (was 12.0.1), in the
   hash-locked `docs/requirements.txt`.
+- **Method**: passmcp is pinned at v0.0.3 (was v0.0.2). Its `check`
+  flags and the report fields the census reads are unchanged; a server
+  whose list cursors loop now fails the catalogue phase with a named
+  error instead of running to the timeout. Recorded in the methodology's
+  [method history](docs/methodology.md#method-history).
 
 ## [0.0.2] — 2026-09-29
 

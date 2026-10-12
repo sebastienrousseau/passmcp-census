@@ -7,7 +7,19 @@ All notable changes are documented here, in the format of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions move by
 0.0.1 a release, in lockstep with the rest of the passmcp family.
 
-## [0.0.4] — 2026-09-30
+## [0.0.5] - 2026-10-12
+
+The census now runs passmcp v0.0.5; no census edition is published in
+this release.
+
+### Changed
+
+- **In lockstep with passmcp 0.0.5.** passmcp-census is released at the
+  family's version.
+- **Method**: passmcp is pinned at v0.0.5 (was v0.0.4). Its `check`
+  flags and the report fields the census reads are unchanged.
+
+## [0.0.4] - 2026-09-30
 
 The census now runs passmcp v0.0.4; no census edition is published in
 this release.
@@ -30,7 +42,7 @@ this release.
   in the methodology's
   [method history](docs/methodology.md#method-history).
 
-## [0.0.3] — 2026-09-30
+## [0.0.3] - 2026-09-30
 
 The census now runs passmcp v0.0.3; no census edition is published in
 this release.
@@ -55,7 +67,7 @@ this release.
   error instead of running to the timeout. Recorded in the methodology's
   [method history](docs/methodology.md#method-history).
 
-## [0.0.2] — 2026-09-29
+## [0.0.2] - 2026-09-29
 
 The first release. passmcp-census was never tagged at 0.0.1; it joins the
 family at the family's current version.
@@ -72,9 +84,9 @@ family at the family's current version.
   `--auth none`, an empty passmcp configuration and no `PASSMCP_`
   variables; bounded concurrency, ten seconds between checks on one host,
   one request a second within a check, and a deadline per endpoint.
-- **`passmcp-census aggregate`**: turns a run into the published dataset —
+- **`passmcp-census aggregate`**: turns a run into the published dataset -
   outcome, listing, phase, check, transport and authorization-scheme tables
-  as CSV, `census.json` and a Frictionless `datapackage.json` — with no
+  as CSV, `census.json` and a Frictionless `datapackage.json` - with no
   server identified.
 - The methodology, the disclosure log, a rendered manual, decision records
   and the family's repository files.

@@ -9,7 +9,7 @@ All notable changes are documented here, in the format of
 
 ## [0.0.7] - Unreleased
 
-The census now runs passmcp v0.0.6; no census edition is published in
+The census now runs passmcp v0.0.7; no census edition is published in
 this release. passmcp-census was not released at 0.0.6; it moves from
 0.0.5 to the family's version.
 
@@ -17,9 +17,12 @@ this release. passmcp-census was not released at 0.0.6; it moves from
 
 - **In lockstep with passmcp 0.0.7.** passmcp-census is released at the
   family's version.
-- **Method**: passmcp is pinned at v0.0.6 (was v0.0.5). Its `check`
-  flags, its probes and the report fields the census reads are
-  unchanged. Recorded in the methodology's
+- **Method**: passmcp is pinned at v0.0.7 (was v0.0.5). Its `check`
+  flags and the report fields the census reads are unchanged. On a
+  server that speaks a stateless revision,
+  `protocol.deprecated_features` now asks for `initialize` as a
+  handshake, which can move that check between warn and pass. Recorded
+  in the methodology's
   [method history](docs/methodology.md#method-history).
 - **Go 1.26.9 or later** (was 1.26.8). govulncheck finds nine
   vulnerabilities in the Go 1.26.8 standard library that the census

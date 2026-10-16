@@ -33,7 +33,7 @@ dropped (`excluded`). The unit of the census is a distinct endpoint URL.
 ## What runs
 
 Each endpoint is checked by the passmcp release pinned in the Makefile
-(`PASSMCP_VERSION`, v0.0.5), with:
+(`PASSMCP_VERSION`, v0.0.6), with:
 
 ```sh
 passmcp check <url> --phases net,discovery,handshake,protocol,catalog \
@@ -116,3 +116,4 @@ records the same changes.
 | 0.0.3 | passmcp pinned at v0.0.3 | `check --help` is identical to v0.0.2's and the report fields the census reads are unchanged. One outcome can differ: a server whose list cursors loop now fails the catalogue phase with a named error instead of running to the timeout. |
 | 0.0.4 | passmcp pinned at v0.0.4 | `check --help` is identical to v0.0.3's and the report fields the census reads are unchanged (schema version 1). Five checks in the phases the census runs are new, so the check table gains rows and a phase's status can change: `protocol.notification_ack`, `protocol.content_type`, `protocol.missing_session`, `catalog.tools.schema_valid` and `catalog.tools.order`. `protocol.content_type`, `protocol.missing_session` and `catalog.tools.order` each send one more read-only request (a liveness call, a `ping` without the session id, a second `tools/list`), so a check can make up to three more requests at the same rate. Outcomes can differ: a server that negotiates MCP 2024-11-05 is graded, with a warning on `handshake.protocol_version`, where it used to stop at the handshake; `discovery.first_contact` names the old HTTP+SSE transport where it used to report an opaque HTTP error; and a server on 2025-03-26 has `catalog.tools.output_schema` skipped instead of judged. |
 | 0.0.5 | passmcp pinned at v0.0.5 | passmcp pinned at v0.0.5 in lockstep with the ecosystem; check flags and report fields are unchanged. One outcome can differ: v0.0.5 records a pass that made no request and cited no evidence as info, not pass ([passmcp ADR 0002](https://github.com/sebastienrousseau/passmcp/blob/main/docs/adr/0002-findings-cite-requests.md)), so a check that passed that way is counted as info. Against the README demo's three example servers this moves `catalog.tools.output_schema` from pass to info, and no other check changes. |
+| 0.0.7 | passmcp pinned at v0.0.6 (was v0.0.5) | `check --help` is identical to v0.0.5's and the report fields the census reads are unchanged. v0.0.6 changes passmcp's styled help and the timeout of `passmcp explain`, and nothing in its probes or report, so no outcome is expected to differ; the README demo's edition is identical under both. |

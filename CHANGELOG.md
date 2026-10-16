@@ -9,13 +9,18 @@ All notable changes are documented here, in the format of
 
 ## [0.0.7] - Unreleased
 
-No census edition is published in this release. passmcp-census was not
-released at 0.0.6; it moves from 0.0.5 to the family's version.
+The census now runs passmcp v0.0.6; no census edition is published in
+this release. passmcp-census was not released at 0.0.6; it moves from
+0.0.5 to the family's version.
 
 ### Changed
 
 - **In lockstep with passmcp 0.0.7.** passmcp-census is released at the
   family's version.
+- **Method**: passmcp is pinned at v0.0.6 (was v0.0.5). Its `check`
+  flags, its probes and the report fields the census reads are
+  unchanged. Recorded in the methodology's
+  [method history](docs/methodology.md#method-history).
 - **Go 1.26.9 or later** (was 1.26.8). govulncheck finds nine
   vulnerabilities in the Go 1.26.8 standard library that the census
   reaches, in `net/http`, `net/textproto` and `crypto/tls`

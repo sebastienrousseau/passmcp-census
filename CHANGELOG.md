@@ -7,7 +7,7 @@ All notable changes are documented here, in the format of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions move by
 0.0.1 a release, in lockstep with the rest of the passmcp family.
 
-## [0.0.7] - Unreleased
+## [0.0.7] - 2026-10-17
 
 The census now runs passmcp v0.0.7; no census edition is published in
 this release. passmcp-census was not released at 0.0.6; it moves from

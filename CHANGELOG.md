@@ -7,22 +7,30 @@ All notable changes are documented here, in the format of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions move by
 0.0.1 a release, in lockstep with the rest of the passmcp family.
 
-## [Unreleased]
+## [0.0.7] - Unreleased
+
+No census edition is published in this release. passmcp-census was not
+released at 0.0.6; it moves from 0.0.5 to the family's version.
 
 ### Changed
 
-- **Go 1.26.9 is the minimum.** Under 1.26.8, govulncheck reports nine
-  standard-library advisories reachable from the census (net/http and
-  its HTTP/2 implementation, net/textproto, crypto/tls; GO-2026-6603 to
-  GO-2026-6617), all fixed in 1.26.9. The README badge and requirements
-  follow `go.mod`.
+- **In lockstep with passmcp 0.0.7.** passmcp-census is released at the
+  family's version.
+- **Go 1.26.9 or later** (was 1.26.8). govulncheck finds nine
+  vulnerabilities in the Go 1.26.8 standard library that the census
+  reaches, in `net/http`, `net/textproto` and `crypto/tls`
+  (GO-2026-6603, 6605, 6607, 6608, 6610 to 6613 and 6617); Go 1.26.9
+  fixes all of them. The README badge and requirements follow `go.mod`.
 - **`make docs-lock` regenerates the manual's hash-locked
   requirements,** with the pip-compile invocation passmcp uses.
   `docs/requirements.in` named no command and claimed a lock identical
   to passmcp's that had already drifted.
-- **Dependencies**: pymdown-extensions 12.2 (was 12.1) for the manual;
-  github/codeql-action 4.38.3 (was 4.38.2) and ossf/scorecard-action
-  2.5.0 (was 2.4.4) in CI.
+- **Manual**: built with pymdown-extensions 12.2 (was 12.1), in the
+  hash-locked `docs/requirements.txt`
+  ([#6](https://github.com/sebastienrousseau/passmcp-census/pull/6)).
+- **CI**: `github/codeql-action` 4.38.3 (was 4.38.2) and
+  `ossf/scorecard-action` 2.5.0 (was 2.4.4)
+  ([#7](https://github.com/sebastienrousseau/passmcp-census/pull/7)).
 
 ## [0.0.5] - 2026-10-12
 

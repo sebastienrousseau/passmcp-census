@@ -118,7 +118,7 @@ decision to run one ([ADR 0003](docs/adr/0003-editions-run-by-hand.md)).
 
 ## The passmcp-census ecosystem
 
-Every component is released at **0.0.5** and moves in lockstep: one version across the family, released together ([docs/ecosystem.md](https://github.com/sebastienrousseau/passmcp/blob/main/docs/ecosystem.md)).
+Every component is released at **0.0.7** and moves in lockstep: one version across the family, released together ([docs/ecosystem.md](https://github.com/sebastienrousseau/passmcp/blob/main/docs/ecosystem.md)).
 
 | Component | Purpose | Use case |
 | :--- | :--- | :--- |
@@ -317,7 +317,7 @@ The four entry points, identical across every repo in the family:
 | [`docs/disclosure-log.md`](docs/disclosure-log.md) | The aggregate-only policy and every exclusion |
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Packages and how a run flows |
 | [`docs/adr/`](docs/adr/README.md) | Decision records for this repository |
-| [`docs/releases/`](docs/releases/v0.0.5.md) | Release highlights, one file per release |
+| [`docs/releases/`](docs/releases/v0.0.7.md) | Release highlights, one file per release |
 | [`SECURITY.md`](SECURITY.md) | Disclosure policy, supported versions, what is guaranteed |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Signed-commit and DCO policy, what a change needs |
 | [`CHANGELOG.md`](CHANGELOG.md) | Per-release notes |

@@ -18,7 +18,7 @@
   <a href="https://sebastienrousseau.com/passmcp-census/"><img src="https://img.shields.io/badge/docs-manual-007d9c?style=for-the-badge&labelColor=555555&logo=readthedocs&logoColor=white" alt="Docs" /></a>
   <a href="https://scorecard.dev/viewer/?uri=github.com/sebastienrousseau/passmcp-census"><img src="https://img.shields.io/ossf-scorecard/github.com/sebastienrousseau/passmcp-census?style=for-the-badge&label=OpenSSF%20Scorecard&logo=openssf" alt="OpenSSF Scorecard" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg?style=for-the-badge" alt="License: Apache-2.0" /></a>
-  <a href="https://github.com/sebastienrousseau/passmcp-census/blob/main/DEVELOPMENT.md#requirements"><img src="https://img.shields.io/badge/go-1.26.8%2B-93450a.svg?style=for-the-badge&logo=go" alt="Go 1.26.8+" /></a>
+  <a href="https://github.com/sebastienrousseau/passmcp-census/blob/main/DEVELOPMENT.md#requirements"><img src="https://img.shields.io/badge/go-1.26.9%2B-93450a.svg?style=for-the-badge&logo=go" alt="Go 1.26.9+" /></a>
 </p>
 
 <p align="center">
@@ -86,7 +86,7 @@ installs from the module proxy.
 
 | Requirement | Floor | Enforced by |
 |---|---|---|
-| Go | the `go` directive in [`go.mod`](go.mod), 1.26.8 | CI tests on that version and on latest stable, on Linux, macOS and Windows |
+| Go | the `go` directive in [`go.mod`](go.mod), 1.26.9 | CI tests on that version and on latest stable, on Linux, macOS and Windows |
 | passmcp | the release the Makefile pins, v0.0.5 | `make passmcp` installs exactly that release; each edition records the version the binary reported |
 | Network | HTTPS to the registry for `list`; to every listed server for `run` | nothing in CI or the tests leaves loopback |
 

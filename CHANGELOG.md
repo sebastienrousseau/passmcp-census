@@ -32,6 +32,14 @@ released at 0.0.6; it moves from 0.0.5 to the family's version.
   `ossf/scorecard-action` 2.5.0 (was 2.4.4)
   ([#7](https://github.com/sebastienrousseau/passmcp-census/pull/7)).
 
+### Fixed
+
+- **The method history records what passmcp v0.0.5 changed.** Its row
+  said only that flags and report fields were unchanged; v0.0.5 also
+  records an unevidenced pass as info, which moves
+  `catalog.tools.output_schema` from pass to info on the demo's
+  servers. Found by running the demo edition with v0.0.4 and v0.0.5.
+
 ## [0.0.5] - 2026-10-12
 
 The census now runs passmcp v0.0.5; no census edition is published in

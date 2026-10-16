@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 .PHONY: all build test test-race coverage coverage-json vet lint format spdx-check reuse readme-check \
-        name-guard versions manual passmcp census-list census demo help
+        name-guard versions manual docs-lock passmcp census-list census demo help
 
 # The version is the newest release heading in CHANGELOG.md, and nowhere else.
 VERSION ?= $(shell grep -Eo '^.. \[[0-9]+\.[0-9]+\.[0-9]+\]' CHANGELOG.md | head -1 | tr -dc '0-9.')
@@ -10,7 +10,7 @@ VERSION ?= $(shell grep -Eo '^.. \[[0-9]+\.[0-9]+\.[0-9]+\]' CHANGELOG.md | head
 # The passmcp release a census runs: a tagged release that exists, never
 # newer than this repository's own version. Every document that names it
 # must agree (scripts/verify-release-versions.sh).
-PASSMCP_VERSION := v0.0.5
+PASSMCP_VERSION := v0.0.7
 PASSMCP ?= $(CURDIR)/build/bin/passmcp
 REGISTRY ?= https://registry.modelcontextprotocol.io
 EDITION ?=
@@ -69,6 +69,13 @@ versions:
 manual:
 	mkdocs build --strict --site-dir public
 
+# The manual's hash-locked requirements, regenerated from docs/requirements.in.
+docs-lock:
+	@command -v pip-compile >/dev/null 2>&1 || { \
+	  echo "pip-compile is missing. Install it with: python3 -m pip install pip-tools"; exit 1; }
+	pip-compile --allow-unsafe --generate-hashes --strip-extras \
+	  --output-file=docs/requirements.txt docs/requirements.in
+
 # The pinned passmcp release, into build/bin.
 passmcp:
 	GOBIN="$(CURDIR)/build/bin" go install "satellion.com/passmcp/cmd/passmcp@$(PASSMCP_VERSION)"
@@ -103,4 +110,4 @@ demo: build passmcp
 
 help:
 	@printf '%s\n' "targets: all build test test-race coverage coverage-json vet lint format spdx-check reuse" \
-	  "         readme-check name-guard versions manual passmcp census-list census (EDITION=YYYY-MM) demo"
+	  "         readme-check name-guard versions manual docs-lock passmcp census-list census (EDITION=YYYY-MM) demo"

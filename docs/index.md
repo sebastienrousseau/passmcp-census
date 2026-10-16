@@ -15,6 +15,7 @@ log and the command that reproduces them.
 | [Disclosure log](disclosure-log.md) | The aggregate-only policy, and every exclusion request |
 | [Architecture](ARCHITECTURE.md) | The packages and how a run flows |
 | [Decision records](adr/README.md) | Decisions made in this repository, and why |
+| [Release 0.0.7](releases/v0.0.7.md) | The highlights of the fifth release |
 | [Release 0.0.5](releases/v0.0.5.md) | The highlights of the fourth release |
 | [Release 0.0.4](releases/v0.0.4.md) | The highlights of the third release |
 | [Release 0.0.3](releases/v0.0.3.md) | The highlights of the second release |

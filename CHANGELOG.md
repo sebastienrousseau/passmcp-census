@@ -7,6 +7,47 @@ All notable changes are documented here, in the format of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions move by
 0.0.1 a release, in lockstep with the rest of the passmcp family.
 
+## [0.0.7] - 2026-10-17
+
+The census now runs passmcp v0.0.7; no census edition is published in
+this release. passmcp-census was not released at 0.0.6; it moves from
+0.0.5 to the family's version.
+
+### Changed
+
+- **In lockstep with passmcp 0.0.7.** passmcp-census is released at the
+  family's version.
+- **Method**: passmcp is pinned at v0.0.7 (was v0.0.5). Its `check`
+  flags and the report fields the census reads are unchanged. On a
+  server that speaks a stateless revision,
+  `protocol.deprecated_features` now asks for `initialize` as a
+  handshake, which can move that check between warn and pass. Recorded
+  in the methodology's
+  [method history](docs/methodology.md#method-history).
+- **Go 1.26.9 or later** (was 1.26.8). govulncheck finds nine
+  vulnerabilities in the Go 1.26.8 standard library that the census
+  reaches, in `net/http`, `net/textproto` and `crypto/tls`
+  (GO-2026-6603, 6605, 6607, 6608, 6610 to 6613 and 6617); Go 1.26.9
+  fixes all of them. The README badge and requirements follow `go.mod`.
+- **`make docs-lock` regenerates the manual's hash-locked
+  requirements,** with the pip-compile invocation passmcp uses.
+  `docs/requirements.in` named no command and claimed a lock identical
+  to passmcp's that had already drifted.
+- **Manual**: built with pymdown-extensions 12.2 (was 12.1), in the
+  hash-locked `docs/requirements.txt`
+  ([#6](https://github.com/sebastienrousseau/passmcp-census/pull/6)).
+- **CI**: `github/codeql-action` 4.38.3 (was 4.38.2) and
+  `ossf/scorecard-action` 2.5.0 (was 2.4.4)
+  ([#7](https://github.com/sebastienrousseau/passmcp-census/pull/7)).
+
+### Fixed
+
+- **The method history records what passmcp v0.0.5 changed.** Its row
+  said only that flags and report fields were unchanged; v0.0.5 also
+  records an unevidenced pass as info, which moves
+  `catalog.tools.output_schema` from pass to info on the demo's
+  servers. Found by running the demo edition with v0.0.4 and v0.0.5.
+
 ## [0.0.5] - 2026-10-12
 
 The census now runs passmcp v0.0.5; no census edition is published in

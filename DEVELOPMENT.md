@@ -17,7 +17,8 @@ is cut.
 
 Optional, only for the gate that uses it: `golangci-lint` v2 (`make lint`),
 `reuse` (`make reuse`), Python 3.12 with the hash-locked
-`docs/requirements.txt` (`make manual`), `markdownlint-cli2`, `codespell`
+`docs/requirements.txt` (`make manual`), `pip-tools` (`make docs-lock`,
+which regenerates that lock), `markdownlint-cli2`, `codespell`
 and `lychee` (the Docs Lint workflow and `pre-commit`).
 
 The Go floor is raised only when a release needs a language feature, and

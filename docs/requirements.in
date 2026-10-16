@@ -3,7 +3,7 @@
 #
 # The manual's build inputs. Edit this file, then regenerate the lock:
 #
-#   pip-compile (see passmcp's docs/requirements.in); kept identical to passmcp's lock
+#   make docs-lock
 #
 # The lock carries a hash for every package, including the transitive ones,
 # because pip only enforces hashes when every requirement has one.

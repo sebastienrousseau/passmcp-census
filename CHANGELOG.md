@@ -7,6 +7,23 @@ All notable changes are documented here, in the format of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions move by
 0.0.1 a release, in lockstep with the rest of the passmcp family.
 
+## [Unreleased]
+
+### Changed
+
+- **Go 1.26.9 is the minimum.** Under 1.26.8, govulncheck reports nine
+  standard-library advisories reachable from the census (net/http and
+  its HTTP/2 implementation, net/textproto, crypto/tls; GO-2026-6603 to
+  GO-2026-6617), all fixed in 1.26.9. The README badge and requirements
+  follow `go.mod`.
+- **`make docs-lock` regenerates the manual's hash-locked
+  requirements,** with the pip-compile invocation passmcp uses.
+  `docs/requirements.in` named no command and claimed a lock identical
+  to passmcp's that had already drifted.
+- **Dependencies**: pymdown-extensions 12.2 (was 12.1) for the manual;
+  github/codeql-action 4.38.3 (was 4.38.2) and ossf/scorecard-action
+  2.5.0 (was 2.4.4) in CI.
+
 ## [0.0.5] - 2026-10-12
 
 The census now runs passmcp v0.0.5; no census edition is published in

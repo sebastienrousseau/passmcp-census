@@ -21,8 +21,9 @@ Optional, only for the gate that uses it: `golangci-lint` v2 (`make lint`),
 which regenerates that lock), `markdownlint-cli2`, `codespell`
 and `lychee` (the Docs Lint workflow and `pre-commit`).
 
-The Go floor is raised only when a release needs a language feature, and
-the changelog says so.
+The Go floor is raised only when a release needs a language feature or
+a standard-library security fix the census reaches, and the changelog
+says so.
 
 ## Reproducing every CI gate
 

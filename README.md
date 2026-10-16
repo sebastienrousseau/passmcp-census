@@ -90,8 +90,9 @@ installs from the module proxy.
 | passmcp | the release the Makefile pins, v0.0.5 | `make passmcp` installs exactly that release; each edition records the version the binary reported |
 | Network | HTTPS to the registry for `list`; to every listed server for `run` | nothing in CI or the tests leaves loopback |
 
-The Go floor is raised only when a release needs a language feature, and
-the changelog says so.
+The Go floor is raised only when a release needs a language feature or
+a standard-library security fix the census reaches, and the changelog
+says so.
 
 ---
 

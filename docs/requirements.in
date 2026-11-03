@@ -10,7 +10,7 @@
 mkdocs==1.6.1
 # 9.7.0 is the first release that drops the `~=10.2` cap on
 # pymdown-extensions, which is what lets the line below be satisfied.
-mkdocs-material==9.7.7
+mkdocs-material==9.8.0
 # Not a direct dependency of the manual — mkdocs-material pulls it in — but
 # pinned here because everything at 11.0.0 and below carries GHSA-gm37-52c6-37mw
 # (exponential backtracking in four inline processors that are on by default)

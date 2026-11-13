@@ -7,6 +7,41 @@ All notable changes are documented here, in the format of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions move by
 0.0.1 a release, in lockstep with the rest of the passmcp family.
 
+## [0.0.9] - 2026-11-12
+
+The census now runs passmcp v0.0.9; no census edition is published in
+this release. passmcp-census was not tagged at 0.0.8; it moves from
+0.0.7 to the family's version.
+
+### Changed
+
+- **In lockstep with passmcp 0.0.9.** passmcp-census is released at the
+  family's version.
+- **Method**: passmcp is pinned at v0.0.9 (was v0.0.7). The flags the
+  census passes and the report fields it reads are unchanged. In the
+  phases the census runs, `protocol.unknown_resource` (SEP-2164, 139
+  checks in all) adds one read-only `resources/read` check when
+  `capabilities.resources` is declared, capability gating skips
+  `protocol.invalid_params` and `protocol.unknown_tool` when
+  `capabilities.tools` is undeclared and selects a declared list RPC on
+  stateless first contact, and `catalog.cache_hints` checks SEP-2549
+  `ttlMs` and `cacheScope` across declared list endpoints on
+  `2026-07-28`. Recorded in the methodology's
+  [method history](docs/methodology.md#method-history).
+- **Manual**: built with `mkdocs-material` 9.8.0 (was 9.7.7),
+  `pymdown-extensions` 12.3 (was 12.2), and `certifi` floored at
+  2026.10.23 (fixing GHSA-6q48-6c7w-9gw2 / PYSEC-2026-4320) in the
+  hash-locked `docs/requirements.txt`
+  ([#9](https://github.com/sebastienrousseau/passmcp-census/pull/9),
+  [#16](https://github.com/sebastienrousseau/passmcp-census/pull/16),
+  [#17](https://github.com/sebastienrousseau/passmcp-census/pull/17)).
+- **CI**: `actions/checkout` 7.0.1, `actions/upload-pages-artifact`
+  5.0.0, `actions/deploy-pages` 5.0.1,
+  `DavidAnson/markdownlint-cli2-action` 25.0.0, and
+  `github/codeql-action` 4.39.3
+  ([#16](https://github.com/sebastienrousseau/passmcp-census/pull/16),
+  [#18](https://github.com/sebastienrousseau/passmcp-census/pull/18)).
+
 ## [0.0.7] - 2026-10-17
 
 The census now runs passmcp v0.0.7; no census edition is published in

@@ -7,6 +7,27 @@ All notable changes are documented here, in the format of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions move by
 0.0.1 a release, in lockstep with the rest of the passmcp family.
 
+## [0.0.10] - 2026-11-13
+
+The census now runs passmcp v0.0.10; no census edition is published in
+this release.
+
+### Changed
+
+- **In lockstep with passmcp 0.0.10.** passmcp-census is released at the
+  family's version, and `README.md` lists the 15-repository family
+  manifest including the six Apache-2.0 MCP language SDK satellites.
+- **Method**: passmcp is pinned at v0.0.10 (was v0.0.9). The flags the
+  census passes, the number of requests and the report fields it reads
+  are unchanged (schema version 1, 139 checks in all). In the `catalog`
+  phase, `catalog.toxic_combination` excludes closed-world bundled-fixture
+  readers (`readOnlyHint: true`, `openWorldHint: false`, no path, file or
+  URL schema parameter, explicit bundled-fixture description), and
+  `catalog.tools.annotation_honesty` accepts read-only inspection and
+  simulation `run_*` and `execute_*` tools while still failing mutating
+  command, script and migration tools. Recorded in the methodology's
+  [method history](docs/methodology.md#method-history).
+
 ## [0.0.9] - 2026-11-12
 
 The census now runs passmcp v0.0.9; no census edition is published in

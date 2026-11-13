@@ -18,4 +18,4 @@ mkdocs-material==9.8.0
 # first release with both fixed.
 pymdown-extensions>=12.3
 # certifi < 2026.10.19: PYSEC-2026-4320 (GHSA-6q48-6c7w-9gw2), fixed in 2026.10.19.
-certifi>=2026.10.19
+certifi>=2026.10.23
